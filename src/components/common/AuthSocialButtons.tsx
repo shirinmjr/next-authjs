@@ -2,12 +2,19 @@
 import { Stack } from "@mui/system";
 import { Avatar, Box } from "@mui/material";
 import { signIn } from "next-auth/react";
-import CustomSocialButton from "../CustomSocialButton";
+import CustomSocialButton from "./CustomSocialButton";
+
 interface AuthSocialButtonsProps {
   title: string;
   loginTo: string;
+  socialLogo: string;
 }
-const AuthSocialButtons = ({ title, loginTo }: AuthSocialButtonsProps) => {
+
+const AuthSocialButtons = ({
+  title,
+  loginTo,
+  socialLogo,
+}: AuthSocialButtonsProps) => {
   return (
     <>
       <Stack direction="row" justifyContent="center" spacing={2} mt={3}>
@@ -15,9 +22,14 @@ const AuthSocialButtons = ({ title, loginTo }: AuthSocialButtonsProps) => {
           onClick={() => signIn(loginTo, { redirectTo: "/" })}
         >
           <Avatar
-            src={"/images/svgs/google-icon.svg"}
-            alt={title}
-            sx={{ width: 16, height: 16, borderRadius: 0, mr: 1 }}
+            alt={"google"}
+            src={socialLogo}
+            sx={{
+              width: 26,
+              height: 26,
+              borderRadius: 0,
+              mr: 1,
+            }}
           />
           <Box
             sx={{
