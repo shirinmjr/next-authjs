@@ -3,10 +3,24 @@ import googleLogo from "../../assets/google-logo.png";
 import githubLogo from "../../assets/github-logo.png";
 import microsoftLogo from "../../assets/microsoft-logo.png";
 import SignInForm from "./login/SignInForm";
+import SignUpBtn from "../common/SignUpBtn";
+import { Box } from "@mui/material";
+import Image from "next/image";
+import SecurityLoginPage from "@/assets/security-img.webp";
 
 export default function SignIn() {
   return (
-    <div className="flex rounded-2xl border-2 border-black p-20 my-20">
+    <div className="flex justify-between border-2 border-black p-20 mt-20">
+      <Box sx={{ display: { xs: "none", sm: "block" } }}>
+        <Image
+          src={SecurityLoginPage}
+          className="open-locker-logo"
+          alt="open locker logo"
+          width={550}
+          height={450}
+          priority
+        />
+      </Box>
       <div className="flex flex-col md:flex-row justify-center  ">
         <div className="flex flex-col  ml-0 gap-4 md:border-r-4 px-6">
           <div>
@@ -37,8 +51,9 @@ export default function SignIn() {
             />
           </div>
         </div>
-        <div className="px-2">
+        <div>
           <SignInForm />
+          <SignUpBtn />
         </div>
       </div>
     </div>
