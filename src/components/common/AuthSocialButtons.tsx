@@ -16,13 +16,15 @@ const AuthSocialButtons = ({
   socialLogo,
 }: AuthSocialButtonsProps) => {
   return (
-    <>
-      <Stack direction="row" justifyContent="center" spacing={2} mt={3}>
+    <div className="flex justify-start">
+      <Stack direction="column" justifyContent="start" spacing={2} mt={3}>
         <CustomSocialButton
-          onClick={() => signIn(loginTo, { redirectTo: "/" })}
+          onClick={() =>
+            signIn(loginTo, { redirectTo: "/dashboard/landing-page" })
+          }
         >
           <Avatar
-            alt={"google"}
+            alt={socialLogo}
             src={socialLogo}
             sx={{
               width: 26,
@@ -35,7 +37,7 @@ const AuthSocialButtons = ({
             sx={{
               display: { xs: "none", sm: "flex" },
               whiteSpace: "nowrap",
-              mr: { sm: "3px" },
+              mr: { sm: "4px" },
             }}
           >
             Sign in with
@@ -43,7 +45,7 @@ const AuthSocialButtons = ({
           {title}
         </CustomSocialButton>
       </Stack>
-    </>
+    </div>
   );
 };
 
