@@ -4,30 +4,11 @@ export const headerData = [
     href: "/",
     ref: "/",
   },
+
   {
-    title: "About The App",
+    title: "About This App",
     href: "#about",
     ref: "about",
-  },
-  {
-    title: "",
-    href: "#",
-    ref: "",
-  },
-  {
-    title: "",
-    href: "#",
-    ref: "",
-  },
-  {
-    title: "",
-    href: "#",
-    ref: "",
-  },
-  {
-    title: "",
-    href: "#",
-    ref: "",
   },
   {
     title: "Contact Me",

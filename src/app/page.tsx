@@ -2,6 +2,7 @@ import SignIn from "@/components/auth/page";
 import { auth } from "./auth";
 import { redirect } from "next/navigation";
 import Header from "@/components/common/header/Header";
+import AboutApp from "@/components/about/AboutApp";
 
 export default async function Home() {
   const user = await auth();
@@ -9,12 +10,11 @@ export default async function Home() {
   if (user) redirect("/dashboard/landing-page");
   if (!user) {
     return (
-      <>
+      <div className="bg-white text-gray-900">
         <Header />
-        <div className="flex flex-col items-center h-screen bg-white text-black">
-          <SignIn />
-        </div>
-      </>
+        <SignIn />
+        <AboutApp />
+      </div>
     );
   }
   {
