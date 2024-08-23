@@ -8,8 +8,6 @@ import Credentials from "next-auth/providers/credentials";
 import { ZodError } from "zod";
 
 const saltRounds = 10;
-const myPlaintextPassword = "s0//P4$$w0rD";
-const someOtherPlaintextPassword = "not_bacon";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   // adapter: MongoDBAdapter(client),
