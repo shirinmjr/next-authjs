@@ -40,3 +40,8 @@ to set up the password encryption used bcrypt
 ```
 npm -i next-auth bcrypt
 ```
+To Generate Prisma key
+
+```sh
+npx prisma generate
+```
