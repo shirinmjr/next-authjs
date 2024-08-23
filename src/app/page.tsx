@@ -13,7 +13,6 @@ export default async function Home() {
       <div className="bg-white text-gray-900">
         <Header />
         <SignIn />
-        <AboutApp />
       </div>
     );
   }
