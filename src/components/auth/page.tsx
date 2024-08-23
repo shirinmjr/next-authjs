@@ -7,10 +7,11 @@ import SignUpBtn from "../common/SignUpBtn";
 import { Box } from "@mui/material";
 import Image from "next/image";
 import SecurityLoginPage from "@/assets/security-img.webp";
+import Link from "next/link";
 
 export default function SignIn() {
   return (
-    <div className="flex justify-between border-2 border-black p-20 mt-20">
+    <div className="flex justify-between border-2 border-black p-20 my-20">
       <Box sx={{ display: { xs: "none", sm: "block" } }}>
         <Image
           src={SecurityLoginPage}
@@ -53,7 +54,9 @@ export default function SignIn() {
         </div>
         <div>
           <SignInForm />
-          <SignUpBtn />
+          <Link href={"/sign-up"}>
+            <SignUpBtn />
+          </Link>
         </div>
       </div>
     </div>
