@@ -47,7 +47,7 @@ export default function SignIn() {
           <SignInForm />
           <div className="text-lg">
             Create a new Account
-            <Link href={"/sign-up"}>
+            <Link href={"sign-up"}>
               <SignUpBtn />
             </Link>
           </div>

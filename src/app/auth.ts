@@ -1,54 +1,47 @@
 import NextAuth from "next-auth";
 import github from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
-import client from "./lib/db";
-import { MongoDBAdapter } from "@auth/mongodb-adapter";
+//import client from "./lib/db";
+import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
-import Credentials from "next-auth/providers/credentials";
 import { ZodError } from "zod";
-
+import { PrismaAdapter } from "@auth/prisma-adapter";
+import { PrismaClient } from "@prisma/client";
+import credentials from "next-auth/providers/credentials";
 const saltRounds = 10;
 
+const prisma = new PrismaClient();
+export type credentials = {
+  username: string;
+  password: any;
+};
+
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  // adapter: MongoDBAdapter(client),
+  adapter: PrismaAdapter(prisma),
   providers: [
-    Google,
+    Google, //googleProvider: clientId and clientSecret
     github,
-    // Credentials({
-    //   // You can specify which fields should be submitted, by adding keys to the `credentials` object.
-    //   // e.g. domain, username, password, 2FA token, etc.
-    //   credentials: {
-    //     email: {},
-    //     password: {},
-    //   },
-    //   authorize: async (credentials) => {
-    //     try {
-    //       let user = null;
-
-    //       // const { email, password } = await signInSchema.parseAsync(
-    //       //   credentials
-    //       // );
-    //       // const pwHash = bcrypt.hashSync(password, saltRounds);
-
-    //       // logic to verify if the user exists
-    //       // user = await getUserFromDb(email, pwHash);
-
-    //       if (!user) {
-    //         throw new Error("User not found.");
-    //       }
-
-    //       // return JSON object with the user data
-    //       return user;
-    //     } catch (error) {
-    //       if (error instanceof ZodError) {
-    //         // Return `null` to indicate that the credentials are invalid
-    //         return null;
-    //       }
-    //     }
-    //   },
-    // }),
+    CredentialsProvider({
+      name: "credentials",
+      credentials: {
+        username: {
+          label: "Username",
+          type: "text",
+          placeholder: "Enter username",
+        },
+        password: {
+          label: "Password",
+          type: "password",
+        },
+      },
+      async authorize(credentials, req) {
+        throw new Error("Username or Password Incorrect!");
+      },
+    }),
   ],
+  session: {
+    strategy: "jwt",
+  },
+  secret: process.env.NEXTAUTH_SECRET,
+  debug: process.env.NODE_ENV === "development",
 });
-// bcrypt.hash(myPlaintextPassword, saltRounds, function (err, hash) {
-//   // Store hash in your password DB.
-// });
