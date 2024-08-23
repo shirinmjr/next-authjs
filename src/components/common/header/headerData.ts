@@ -11,7 +11,7 @@ export const headerData = [
     ref: "about",
   },
   {
-    title: "Contact Me",
+    title: "Let's Connect!",
     href: "#contact",
     ref: "contact",
   },
