@@ -8,47 +8,45 @@ import Credentials from "next-auth/providers/credentials";
 import { ZodError } from "zod";
 
 const saltRounds = 10;
-const myPlaintextPassword = "s0//P4$$w0rD";
-const someOtherPlaintextPassword = "not_bacon";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  adapter: MongoDBAdapter(client),
+  // adapter: MongoDBAdapter(client),
   providers: [
     Google,
     github,
-    Credentials({
-      // You can specify which fields should be submitted, by adding keys to the `credentials` object.
-      // e.g. domain, username, password, 2FA token, etc.
-      credentials: {
-        email: {},
-        password: {},
-      },
-      authorize: async (credentials) => {
-        try {
-          let user = null;
+    // Credentials({
+    //   // You can specify which fields should be submitted, by adding keys to the `credentials` object.
+    //   // e.g. domain, username, password, 2FA token, etc.
+    //   credentials: {
+    //     email: {},
+    //     password: {},
+    //   },
+    //   authorize: async (credentials) => {
+    //     try {
+    //       let user = null;
 
-          // const { email, password } = await signInSchema.parseAsync(
-          //   credentials
-          // );
-          // const pwHash = bcrypt.hashSync(password, saltRounds);
+    //       // const { email, password } = await signInSchema.parseAsync(
+    //       //   credentials
+    //       // );
+    //       // const pwHash = bcrypt.hashSync(password, saltRounds);
 
-          // logic to verify if the user exists
-          // user = await getUserFromDb(email, pwHash);
+    //       // logic to verify if the user exists
+    //       // user = await getUserFromDb(email, pwHash);
 
-          if (!user) {
-            throw new Error("User not found.");
-          }
+    //       if (!user) {
+    //         throw new Error("User not found.");
+    //       }
 
-          // return JSON object with the user data
-          return user;
-        } catch (error) {
-          if (error instanceof ZodError) {
-            // Return `null` to indicate that the credentials are invalid
-            return null;
-          }
-        }
-      },
-    }),
+    //       // return JSON object with the user data
+    //       return user;
+    //     } catch (error) {
+    //       if (error instanceof ZodError) {
+    //         // Return `null` to indicate that the credentials are invalid
+    //         return null;
+    //       }
+    //     }
+    //   },
+    // }),
   ],
 });
 // bcrypt.hash(myPlaintextPassword, saltRounds, function (err, hash) {

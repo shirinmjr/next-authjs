@@ -5,22 +5,6 @@ export const footerNavData = [
     ref: "/",
   },
   {
-    title: "",
-    href: "#",
-    ref: "",
-  },
-
-  {
-    title: "",
-    href: "#",
-    ref: "",
-  },
-  {
-    title: "",
-    href: "#",
-    ref: "",
-  },
-  {
     title: "Let's Connect!",
     href: "#contact",
     ref: "contact",
@@ -29,5 +13,10 @@ export const footerNavData = [
     title: "Blog",
     href: "/blog",
     ref: "blog",
+  },
+  {
+    title: "",
+    href: "#",
+    ref: "",
   },
 ];

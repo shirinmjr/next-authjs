@@ -2,7 +2,6 @@
 import React from "react";
 import { Typography } from "@mui/material";
 import { usePathname } from "next/navigation";
-
 import Link from "next/link";
 import Image from "next/image";
 import { footerNavData } from "./footerNavData";
@@ -35,11 +34,11 @@ export default function Footer({}) {
               </a>
             </div>
             <div className="flex flex-col text-[16px] leading-[24px] font-open-sans">
-              <h6 data-aos="fade-up" data-aos-delay="0">
+              {/* <h6 data-aos="fade-up" data-aos-delay="0">
                 Join our newsletter to stay up to date on features and releases.
-              </h6>
+              </h6> */}
             </div>
-            <div className="mb-12">{<Newsletter />}</div>
+            {/* <div className="mb-12">{<Newsletter />}</div> */}
             <div className="flex sm:pt-0 pt-10">
               <p
                 className="mb-10 text-[12px] leading-[18px]"

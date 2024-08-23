@@ -1,8 +1,10 @@
 const SignInForm = () => {
   return (
     <div>
-      <div className=" flex-row h-20 w-full p-2">
-        <h1>Sign in With Username and Password</h1>
+      <div className=" flex-row  w-full p-2">
+        <span className="text-32 py-10">
+          Sign in With Username and Password
+        </span>
         <form className=" shadow-lg rounded-lg">
           <div className="relative flex-col sm:flex-col md:flex-row items-center md:items-center">
             <input
