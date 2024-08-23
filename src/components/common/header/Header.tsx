@@ -15,20 +15,10 @@ const Header = () => {
 
   return (
     <div>
-      <header className="fixed z-50 w-full top-0 left-0 bg-white text-black shadow-md py-[20px] px-[10px] min-h-[80px]">
+      <header className="fixed z-50 w-full top-0 left-0 bg-white text-black shadow-md py-[15px] px-[10px]">
         <div className="flex flex-wrap items-center justify-between relative bg-white text-black gap-5">
-          <a href="/" className="block">
-            <Box sx={{ display: { xs: "none", sm: "block" } }}>
-              <Image
-                src={OpenLocker}
-                className="open-locker-logo"
-                alt="open locker logo"
-                width={90}
-                height={50}
-                priority
-              />
-            </Box>
-            <Box sx={{ display: { xs: "block", sm: "none" } }}>
+          <a href="/" className="flex items-center">
+            <Box>
               <Image
                 src={OpenLocker}
                 className="open-locker-logo"
@@ -38,19 +28,29 @@ const Header = () => {
                 priority
               />
             </Box>
+            {/* <Box sx={{ display: { xs: "block", sm: "none" } }}>
+              <Image
+                src={OpenLocker}
+                className="open-locker-logo"
+                alt="open locker logo"
+                width={50}
+                height={50}
+                priority
+              />
+            </Box> */}
+            <Box
+              sx={{
+                fontSize: "18px",
+                fontWeight: "bold",
+                textAlign: "center",
+                color: "#333",
+              }}
+            >
+              Login To Secure Your Environment
+            </Box>
           </a>
-          <Box
-            sx={{
-              fontSize: "23px",
-              fontWeight: "bold",
-              textAlign: "center",
-              color: "#333",
-              padding: "16px 0",
-            }}
-          >
-            Login To Secure Your Environment
-          </Box>
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
+
+          <Box>
             <ul className="pl-[10px]">
               <Box sx={{ display: { sm: "none", md: "block flex " } }}>
                 {pathname === "/" &&
@@ -65,7 +65,7 @@ const Header = () => {
                           //   scrollToSection(item.ref);
                           // }}
                           className={
-                            "text-gray-800 lg:hover:text-[#007bff] block py-[10px] px-[20px] text-[23px] leading-[24px]"
+                            "text-gray-800 lg:hover:text-orange-800 block py-[10px] px-[20px] text-[20px] leading-[24px]"
                           }
                         >
                           {item.title}
@@ -73,23 +73,10 @@ const Header = () => {
                       </li>
                     );
                   })}
-                {pathname != "/" && (
-                  <li>
-                    <Link
-                      href={"/"}
-                      className={
-                        "text-gray-800 lg:hover:text-[#007bff] block py-[10px] px-[20px] text-[16px] leading-[24px]"
-                      }
-                    >
-                      Home
-                    </Link>
-                  </li>
-                )}
                 <SignOutBtn />
               </Box>
             </ul>
           </Box>
-          {/* <MobileMenu></MobileMenu> */}
         </div>
       </header>
     </div>
